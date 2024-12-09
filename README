@@ -1,0 +1,90 @@
+A SIMPLE TO-DO LIST..
+
+-----------------------------
+| 📝  To-Do List             |
+| ------------------------- |
+| [ Input task here     ] +  |
+| ------------------------- |
+| Tasks:                     |
+| - Buy Groceries            |
+| - Study Django             |
+| - Build To-Do App          |
+-----------------------------
+
+STRUCTURE
+----------
+
+To_DO/              # Root directory (created by `django-admin startproject todo_project`)
+│
+├── manage.py             # Django's CLI utility
+│
+├── To_DO/         # Django project settings folder (same name as the project)
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py       # Project settings file (STATIC, INSTALLED_APPS, DATABASES, etc.)
+│   ├── urls.py           # Global URL configurations
+│   ├── wsgi.py
+│   └── __pycache__/
+│
+└── app/                  # Django app folder (created by `python manage.py startapp app`)
+    ├── migrations/       # Database migration files (created by `python manage.py makemigrations`)
+    │   └── __init__.py
+    │
+    ├── templates/        # HTML templates folder
+    │   └── app/          # Namespace folder for app templates
+    │       └── task_list.html  # Template to display the list of tasks
+    │
+    ├── static/           # Folder to store static files (CSS, images, JS)
+    │   └── app/          # Namespace folder for app static files
+    │       └── css/
+    │           └── styles.css  # Your CSS file
+    │
+    ├── __init__.py
+    ├── admin.py          # Admin site customization (optional)
+    ├── apps.py           # App configuration file
+    ├── models.py         # Models for the app (Task model goes here)
+    ├── tests.py          # Unit tests for the app
+    ├── views.py          # Business logic and request handling
+    ├── urls.py           # URL patterns specific to this app
+    └── __pycache__/
+
+GIT LOGS 
+---------
+# to understand the approach and how this was made
+
+commit 67e574084fd56061eba7d7806e37b11d8738a731 (HEAD -> master, origin/master)
+Author: CBcodes03 <chiragbudakoti12334@gmail.com>
+Date:   Tue Dec 10 03:17:48 2024 +0530
+
+    made a public repo and added remote now will push
+
+commit 0627d031e718f0edd92582e65e85ada287465f89
+Author: CBcodes03 <chiragbudakoti12334@gmail.com>
+Date:   Tue Dec 10 03:11:30 2024 +0530
+
+    -> add a new method in 'app/views.py' delete_task which takes request and a parameter along it which is a string then matches that string into the stored task list
+            then deletes the task that matches the string.
+    -> made a route for the above function in urls.py.
+    -> used a simple emoji with anchor tag to trigger the url for deletion along the task.
+
+commit a4069b0728debad9c738ae91fb2fa95987d17ff3
+Author: CBcodes03 <chiragbudakoti12334@gmail.com>
+Date:   Tue Dec 10 02:14:40 2024 +0530
+
+    -> !!!using persistent cookies to store tasks with a default date of 7 days..
+    -> made the ui for the todo app
+    -> made a form for submitting the task that needs to be added to the list and using (DTL) viewing the list.
+    -> a function in the 'app/views.py' names 'add_task' updates the list of task whenever the submit button is clicked as the function is linked to it.
+    -> added css so the form looks nice..
+
+commit 6e2279dd44cc8c083a28b060e744441026e54af9
+Author: CBcodes03 <chiragbudakoti12334@gmail.com>
+Date:   Tue Dec 10 00:18:35 2024 +0530
+
+    SECOND-COMMIT = made an app using 'startapp' made 'app/templayes/app/index.html' also made 'app/static/css/style.css add a index func in views which returns index.html made url pattern in urls.py then in urls.py of todo add app.urls'
+
+commit e3b06046287bb6c2f40423a9b6cb98635107933f
+Author: CBcodes03 <chiragbudakoti12334@gmail.com>
+Date:   Mon Dec 9 23:13:53 2024 +0530
+
+    FIRST-COMMIT= started the project ran:'django-admin startproject To_do' which created the project directory and basic files
