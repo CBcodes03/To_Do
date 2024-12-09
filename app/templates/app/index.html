@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Todo list</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-        <p>This is a paragraph.</p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 To-Do List</h1>
+        <!-- Task Form -->
+        <form class="form" action="{% url 'add_task' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="task" placeholder="Enter a new task" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <h2>Your Tasks</h2>
+
+        {% if tasks %}
+            <ul>
+                {% for task in tasks %}
+                    <li>{{ task }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tasks yet. Add one!</p>
+        {% endif %}
+    </div>
+</body>
 </html>
