@@ -30,3 +30,16 @@ def add_task(request):
         response = redirect('index')
         response.set_cookie('tasks', ','.join(tasks), max_age=7 * 24 * 60 * 60)  # Store for 7 days
         return response
+    
+def delete_task(request, task):
+    """Delete a specific task from the cookies."""
+    task_list = request.COOKIES.get('tasks')
+    if task_list:
+        tasks = task_list.split(',')
+        if task in tasks:
+            tasks.remove(task)  # Remove the specified task
+
+    # Create a response and set the new task list
+    response = redirect('index')
+    response.set_cookie('tasks', ','.join(tasks), max_age=7 * 24 * 60 * 60)  # Update cookie
+    return response

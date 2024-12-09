@@ -22,7 +22,7 @@
         {% if tasks %}
             <ul>
                 {% for task in tasks %}
-                    <li>{{ task }}</li>
+                    <li>{{ task }} <a href="{% url 'delete_task' task %}">❌</a></li>
                 {% endfor %}
             </ul>
         {% else %}
